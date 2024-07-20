@@ -23,6 +23,27 @@
         </style>
     </head>
     <body class="antialiased">
+        @if (session('success'))
+           <div id="flash-message" class="alert alert-success alert-dismissible position-fixed" style="top: 40px; right: 20px; z-index: 9999;">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ session('success') }}
+            </div>
+
+            
+        @endif
+
+        @if(session('error'))
+            <div id="flash-message" class="alert alert-danger alert-dismissible position-fixed" style="top: 40px; right: 20px; z-index: 9999;">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                Faile. Please check the form  for errors
+            </div>
+        @endif
+
+
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -116,3 +137,14 @@
         </div>
     </body>
 </html>
+
+<!-- Include jQuery (if not already included) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        // setTimeout function to hide the flash message after 5 seconds
+        setTimeout(function() {
+            $('#flash-message').fadeOut('fast');
+        }, 5000); // 5000 milliseconds = 5 seconds
+    });
+</script>
