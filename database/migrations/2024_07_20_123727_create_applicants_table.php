@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('phone')->nullable();
             $table->text('email')->nullable();
             $table->text('course')->nullable();
-            $table->text('has_laptop')->nullable();
+            $table->text('gender')->nullable();
             $table->timestamps();
         });
     }

@@ -14,6 +14,6 @@ class Applicant extends Model
         'phone',
         'email',
         'course',
-        'has_laptop',
+        'gender',
     ];
 }
